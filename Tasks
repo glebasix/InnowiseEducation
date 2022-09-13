@@ -1,0 +1,137 @@
+Mandatory conditions for tasks No. 1-10, 12.
+1. Upload solutions to GIT. Each solution should be in a separate branch.
+2. The branches must be named according to the name of the task: task-1, task-2, etc.
+3. The solution file must be in the root of the branch - no nesting.
+4. File names must be Task1.php , Task2.php etc.
+5. Your solution must contain a PHP class. The class name must match the file name, i.e. Task1, Task2 etc.
+6. Each class file must start with the line 'namespace src;'.
+7. There must be a method named 'main' that returns the desired result.
+8. Using type hinting and return type declaration is mandatory.
+9. If the input function receives obviously incorrect data, it must return
+Exception - throw new \InvalidArgumentException();
+10. Be sure to install the CS Fixer and run the entire solution code through it. This is a prerequisite for passing the tests. We have our own config for CS Fixer,  which Nick will send you. Be sure to use a fixer with our configuration file - https://drive.google.com/file/d/1lXUrOj8fWHOCMbOP-Rr9m3eyWKsL-Lle/view?usp=sharing
+p.s. We recommend solving tasks using PhpStorm, but it is not a prerequisite.
+
+
+Useful materials
+https://www.php-fig.org/psr/psr-1/
+https://www.brainbell.com/php/type-declarations-hints.html
+https://netology-university.bitbucket.io/codestyle/php/
+
+
+
+
+Task 1. Write a PHP function to test whether a number is greater than 30, 20 or 10 using a ternary operator.
+
+Input args: (int $inputNumber)
+Output args: Function must be return one value from list:
+More than 30
+More than 20
+More than 10
+Equal or less than 10
+
+Task 2. Create a simple 'birthday countdown' script, the script counts the number of days left until the person’s birthday. Your script should determine the number of days based on the current date.
+Func args: (string $date).
+Acceptable date format is ’DD-MM-YYYY’
+
+Task 3. Write a PHP program to add the digits by absolute of an integer repeatedly until the result has a single digit.
+
+For example
+Input: 5689
+Output: 1
+Explanation: 5689 = 5+6+8+9 = 28 = 2+8 = 10 = 1+0 = 1
+
+Task 4. Given a string where words are separated by any of the '_', '-', ' ' characters. Write a function that converts such strings to single studly caps case words.
+For example
+Input:     The quick-brown_fox jumps over the_lazy-dog
+Output:    TheQuickBrownFoxJumpsOverTheLazyDog
+Func args:  (string $input)
+
+Task 5. Write a function that finds the first Fibonacci the length of the number is equal to or greater than $n. The length of the number can be quite large. You should try to find a Fibonacci number that is 100+ characters long.
+Fibonacci numbers are the numbers characterized by the fact that every number after the first two is the sum of the two preceding ones.
+Important! Using functions from the BCMath library is forbidden. You need to write your own bitwise addition function.
+Func args: (int $n)
+
+Task 6. Write a function that finds how many Mondays occurred on the first day of each month in the period. For example, the period can be from January 1, 1980 to December 31, 1999. Your function should return Mondays count. Try to implement the most optimized version of the function.
+Output: 2
+Func args: (int $year, int $lastYear, int $month, int $lastMonth, string $day = 'Monday')
+
+Task 7. Given a list of values. Delete the element from the list in the 'n' position. After deleting the element, integer keys must be normalized. Use function array_values()  is forbidden
+For example,
+Input:
+
+$arr = [1, 2, 3, 4, 5];
+var_dump($arr);
+array(5) { [0]=> int(1) [1]=> int(2) [2]=> int(3) [3]=> int(4) [4]=> int(5) }
+$n = 3
+Output:$arr = [1, 2, 3, 5];
+var_dump($arr);
+array(5) { [0]=> int(1) [1]=> int(2) [2]=> int(3) [3]=> int(5) }
+
+Func args: (array $arr, int $position)
+
+Task 8. Write a PHP script which decodes JSON string.
+The function should return a string with a \r\n delimiter
+
+For example:
+{
+"Title": "The Cuckoos Calling",
+"Author": "Robert Galbraith",
+"Detail": {
+"Publisher": "Little Brown"
+}
+}
+
+Expected Output:
+Title: The Cuckoos Calling
+Author: Robert Galbraith
+Publisher: Little Brown
+
+Func args: (string $json)
+
+Task 9. Write a PHP program to find three numbers from an array such that the sum of three consecutive numbers equal to a given number.
+Input:
+
+Array: [2, 7, 7, 1, 8, 2, 7, 8, 7]
+Number: 16
+Output:
+Array
+(
+[0] => 2 + 7 + 7 = 16
+[1] => 7 + 1 + 8 = 16
+)
+
+Func args: (array $arr, int $number)
+
+Task 10. Write a PHP program to implement Collatz conjecture: where you take any positive integer n, if n is even, divide it by 2 to get n / 2. If n is odd, multiply it by 3 and add 1 to obtain 3n + 1. Repeat the process until you reach 1 (the conjecture is that no matter what number you start with, you will always eventually reach 1). Push the result of each intermediate operation into an array.
+
+Input: 12
+Output:
+Array
+(
+[0] => 12
+[1] => 6
+[2] => 3
+[3] => 10
+[4] => 5
+[5] => 16
+[6] => 8
+[7] => 4
+[8] => 2
+[9] => 1
+)
+
+Func args: (int $input)
+
+Task 12. Write a PHP Calculator class which will accept two values as arguments, then add them, subtract them, multiply them together, or divide them on request.
+You need to implement 8 methods: add(), multiply(), divide(), add(), subtract(), addBy(), divideBy(), multiplyBy(), subtractBy().
+
+Provide an opportunity to make calculations by chain.
+
+For example:
+$mycalc = new MyCalculator(12, 6);
+echo $mycalc->add(); // Displays 18
+echo $mycalc->multiply(); // Displays 72
+// Calculation by chain
+echo $mycalc->add()->divideBy(9); // Displays 2 ( (12+6)/9=2 )
+
