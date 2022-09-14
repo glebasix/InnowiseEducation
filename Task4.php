@@ -4,6 +4,11 @@ namespace src;
 
 class Task4
 {
+    /**
+     * @param string $input
+     *
+     * @return string
+     */
     public function main(string $input): string
     {
         $arrayClean = preg_split("/[\s_-]+/", $input);
@@ -14,17 +19,4 @@ class Task4
 
         return implode($result);
     }
-}
-
-$test = new Task4;
-
-try {
-    $example = $test->main('The quick-brown_fox jumps over the_lazy-dog');
-    if ($example) {
-        echo $example;
-    } else {
-        throw new \TypeError();
-    }
-} catch(\TypeError $e) {
-    echo $e->getMessage();
 }
