@@ -4,9 +4,17 @@ namespace src;
 
 class Task8
 {
+    /**
+     * @param string $json
+     *
+     * @return string
+     */
     public function main(string $json): string
     {
         $dataArray = json_decode($json, true);
+        if (!is_array($dataArray)) {
+            return throw new \InvalidArgumentException();
+        }
         $decodedString = '';
         foreach ($dataArray as $key => $value) {
             if (is_array($value)) {
@@ -20,23 +28,4 @@ class Task8
 
         return $decodedString;
     }
-}
-
-$test = new Task8;
-
-try {
-    $example = $test->main('{"Title": "The Cuckoos Calling",
-"Author": "Robert Galbraith",
-"Detail":
-{
-"Publisher": "Little Brown"
- }
-  }');
-    if ($example) {
-        echo $example;
-    } else {
-        throw new \TypeError();
-    }
-} catch(\TypeError $e) {
-    echo $e->getMessage();
 }
