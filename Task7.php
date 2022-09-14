@@ -4,31 +4,24 @@ namespace src;
 
 class Task7
 {
+    /**
+     * @param array $arr
+     * @param int   $position
+     *
+     * @return array
+     */
     public function main(array $arr, int $position): array
     {
+        if (!isset($arr[$position])) {
+            return throw new \InvalidArgumentException();
+        }
+
         unset($arr[$position]);
         $newArr = [];
         foreach ($arr as $ar) {
             $newArr[] = $ar;
         }
-        unset($arr);
-        foreach ($newArr as $newAr) {
-            $arr[] = $newAr;
-        }
 
-        return $arr;
+        return $newArr;
     }
-}
-
-$test = new Task7;
-
-try {
-    $example = $test->main([9, 7, 8, 4, 5, 6, 1], 4);
-    if ($example) {
-        print_r($example);
-    } else {
-        throw new \TypeError();
-    }
-} catch(\TypeError $e) {
-    echo $e->getMessage();
 }
