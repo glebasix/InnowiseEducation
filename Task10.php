@@ -11,7 +11,7 @@ class Task10
      */
     public function main(int $input): array
     {
-        if (!is_int($input) || $input <= 0) {
+        if ($input <= 0) {
             return throw new \InvalidArgumentException();
         }
         $arrayResult[] = $input;
