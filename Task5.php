@@ -11,7 +11,7 @@ class Task5
      */
     public function main(int $n): string
     {
-        if (!is_int($n) || $n < 0) {
+        if ($n <= 0) {
             return throw new \InvalidArgumentException();
         }
 
