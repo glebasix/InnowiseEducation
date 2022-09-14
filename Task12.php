@@ -4,87 +4,120 @@ namespace src;
 
 class Task12
 {
-    private $first;
-    private $second;
-    public $result;
+    private int $first;
+    private int $second;
+    public float $result;
 
-    public function __construct($first, $second)
+    /**
+     * @param int $first
+     * @param int $second
+     */
+    public function __construct(int $first, int $second)
     {
         $this->first = $first;
         $this->second = $second;
     }
 
-    public function add()
+    /**
+     * @return $this
+     */
+    public function add(): self
     {
         $this->result = $this->first + $this->second;
 
         return $this;
     }
 
-    public function substruct()
+    /**
+     * @return $this
+     */
+    public function substruct(): self
     {
         $this->result = $this->first - $this->second;
 
         return $this;
     }
 
-    public function multiply()
+    /**
+     * @return $this
+     */
+    public function multiply(): self
     {
         $this->result = $this->first * $this->second;
 
         return $this;
     }
 
-    public function divide()
+    /**
+     * @return $this
+     */
+    public function divide(): self
     {
+        if ($this->second == 0) {
+            return throw new \InvalidArgumentException();
+        }
         $this->result = $this->first / $this->second;
 
         return $this;
     }
 
-    public function addBy(int $number)
+    /**
+     * @param int $number
+     *
+     * @return $this
+     */
+    public function addBy(int $number): self
     {
         $this->result += $number;
 
         return $this;
     }
 
-    public function substructBy(int $number)
+    /**
+     * @param int $number
+     *
+     * @return $this
+     */
+    public function substructBy(int $number): self
     {
         $this->result -= $number;
 
         return $this;
     }
 
-    public function multiplyBy(int $number)
+    /**
+     * @param int $number
+     *
+     * @return $this
+     */
+    public function multiplyBy(int $number): self
     {
         $this->result *= $number;
 
         return $this;
     }
 
-    public function divideBy(int $number)
+
+    /**
+     * @param int $number
+     *
+     * @return $this
+     */
+    public function divideBy(int $number): self
     {
+        if ($number == 0) {
+            return throw new \InvalidArgumentException();
+        }
         $this->result /= $number;
 
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function __toString(): string
     {
         return $this->result;
     }
-}
-
-$test = new Task12(12, 6);
-
-try {
-    $example = $test->add()->divideBy(9);
-    if ($example) {
-        echo $example;
-    } else {
-        throw new \TypeError();
-    }
-} catch(\TypeError $e) {
-    echo $e->getMessage();
 }
