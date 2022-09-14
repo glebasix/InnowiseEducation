@@ -4,8 +4,17 @@ namespace src;
 
 class Task5
 {
+    /**
+     * @param int $n
+     *
+     * @return string
+     */
     public function main(int $n): string
     {
+        if (!is_int($n) || $n < 0) {
+            return throw new \InvalidArgumentException();
+        }
+
         $number1 = '0';
         $number2 = '1';
         $inHead = '0';
@@ -41,17 +50,4 @@ class Task5
 
         return $finalFibonacci;
     }
-}
-
-$test = new Task5;
-
-try {
-    $example = $test->main(10);
-    if ($example) {
-        echo $example;
-    } else {
-        throw new \TypeError();
-    }
-} catch(\TypeError $e) {
-    echo $e->getMessage();
 }
