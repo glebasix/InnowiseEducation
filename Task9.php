@@ -4,6 +4,12 @@ namespace src;
 
 class Task9
 {
+    /**
+     * @param array $arr
+     * @param int   $number
+     *
+     * @return array
+     */
     public function main(array $arr, int $number): array
     {
         $arrayResults = [];
@@ -20,17 +26,4 @@ class Task9
 
         return $arrayResults;
     }
-}
-
-$test = new Task9;
-
-try {
-    $example = $test->main([1, 4, 6, 8, 9, 2, 4, 5], 11);
-    if ($example) {
-        print_r($example);
-    } else {
-        throw new \TypeError();
-    }
-} catch(\TypeError $e) {
-    echo $e->getMessage();
 }
