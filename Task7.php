@@ -25,3 +25,4 @@ class Task7
         return $newArr;
     }
 }
+
