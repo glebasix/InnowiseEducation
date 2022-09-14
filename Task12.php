@@ -31,7 +31,7 @@ class Task12
     /**
      * @return $this
      */
-    public function substruct(): self
+    public function subtract(): self
     {
         $this->result = $this->first - $this->second;
 
@@ -78,7 +78,7 @@ class Task12
      *
      * @return $this
      */
-    public function substructBy(int $number): self
+    public function subtractBy(int $number): self
     {
         $this->result -= $number;
 
