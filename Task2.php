@@ -4,25 +4,20 @@ namespace src;
 
 class Task2
 {
+    /**
+     * @param string $date
+     *
+     * @return int
+     */
     public function main(string $date): int
     {
+        if (!is_string($date)) {
+            return throw new \InvalidArgumentException();
+        }
         $now = new \DateTime();
         $birthdayDate = \DateTime::createFromFormat('d-m-Y', $date);
         $interval = $now->diff($birthdayDate);
 
-        return $interval->d;
+        return $interval->days;
     }
-}
-
-$test = new Task2;
-
-try {
-    $example = $test->main('14-09-2022');
-    if ($example) {
-        echo $example;
-    } else {
-        throw new \TypeError();
-    }
-} catch(\TypeError $e) {
-    echo $e->getMessage();
 }
