@@ -11,7 +11,7 @@ class Task3
      */
     public function main(int $number): int
     {
-        if (!is_int($number) || $number < 0) {
+        if ($number < 0) {
             return throw new \InvalidArgumentException();
         }
 
