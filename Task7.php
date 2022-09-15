@@ -15,7 +15,6 @@ class Task7
         if (!isset($arr[$position])) {
             return throw new \InvalidArgumentException();
         }
-
         unset($arr[$position]);
         $newArr = [];
         foreach ($arr as $ar) {
@@ -25,4 +24,3 @@ class Task7
         return $newArr;
     }
 }
-
