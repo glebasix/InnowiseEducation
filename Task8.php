@@ -15,17 +15,17 @@ class Task8
         if (!is_array($dataArray)) {
             return throw new \InvalidArgumentException();
         }
-        $decodedString = '';
+        $decodedString = [];
         foreach ($dataArray as $key => $value) {
             if (is_array($value)) {
                 foreach ($value as $keys => $values) {
-                    $decodedString .= "$keys : $values"."\n";
+                    $decodedString[] = "$keys: $values";
                 }
             } else {
-                $decodedString .= "$key : $value"."\n";
+                $decodedString[] = "$key: $value";
             }
         }
 
-        return $decodedString;
+        return implode(PHP_EOL, $decodedString);
     }
 }
