@@ -15,20 +15,19 @@ class Task6
      */
     public function main(int $year, int $lastYear, int $month, int $lastMonth, string $day = 'Monday'): int
     {
-        if ($lastYear < 0 || $lastYear > $year) {
+        if ($year < 0 || $year > $lastYear) {
             return throw new \InvalidArgumentException();
         }
-
         $Date = new \DateTime();
         $lastDate = new \DateTime();
         $Date->setDate($year, $month, 1);
         $lastDate->setDate($lastYear, $lastMonth, 1);
         $counter = 0;
-        while ($lastDate <= $Date) {
-            if ($lastDate->format('l') == $day) {
+        while ($Date <= $lastDate) {
+            if ($Date->format('l') == $day) {
                 $counter++;
             }
-            $lastDate->modify('+1 month');
+            $Date->modify('+1 month');
         }
 
         return $counter;
